@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
       routes.indexPage('about.html',res)
       break;
     default:
-      console.log("/about");
+      console.log("/default");
       routes.indexPage('default.html',res)
       break;
   }

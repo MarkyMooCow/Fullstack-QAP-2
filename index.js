@@ -1,26 +1,24 @@
 // Remember to type | npm init -y | into the console to launch this puppy!
 
 const http = require("http");
+const routes = require('./routes.js')
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, { Content_Type: "text/html" });
-  res.write("<html>Holy crap thing friggin worked");
   switch (req.url) {
     case "/":
       console.log("root");
-      res.write("<body>Cool story bro</body>");
+      routes.indexPage('home.html',res)
       break;
     case "/about":
       console.log("/about");
-      res.write("<body>Too bad I got Strawberry Yop</body>");
+      routes.indexPage('about.html',res)
       break;
     default:
-      console.log("default");
-      res.write("GO SOMEWHERE ELSE PLEASE");
+      console.log("/about");
+      routes.indexPage('default.html',res)
       break;
   }
-  res.write("BRUHHHHHHHHH</html>");
-  res.end();
 });
 
 server.listen(3000, "localhost", () => {
